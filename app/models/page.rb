@@ -3,13 +3,13 @@ class Page < ActiveRecord::Base
 
   validates_presence_of :title
   validates_presence_of [:slug, :body], :if => :not_using_foreign_link?
+  validates_presence_of :css_class
   
   scope :visible, where(:visible => true)
   scope :header_links, where(:show_in_header => true).visible
   scope :footer_links, where(:show_in_footer => true).visible
   scope :sidebar_links, where(:show_in_sidebar => true).visible
-  
-  
+
   before_save :update_positions_and_slug
 
   def initialize(*args)

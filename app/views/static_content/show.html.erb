@@ -8,7 +8,7 @@
     <%= render :partial => "shared/taxonomies" %>
   <% end %>
 <% end %>
-<h1><%= @page.title %></h1>
-<div id="page_content">
+<h1 class="<%= @page.css_class %>"><%= @page.title %></h1>
+<div id="page_content" class="<%= @page.css_class %>">
   <%= raw @page.body %>
 </div>
